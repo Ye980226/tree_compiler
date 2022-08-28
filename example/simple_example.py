@@ -16,7 +16,7 @@ model = lightgbm.train(params, train_dataset, 100, [
                        train_dataset], verbose_eval=False)
 
 model.save_model("model_0.txt")
-from tree_compiler import TreeStructure,TreeCTranslator,TreeIspcTranslator
+from tree_compiler import TreeStructure,TreeCTranslator
 tree=TreeStructure()
 tree.init_from_file("model_0.txt")
 tree.get_tree_dataframe(perfect=True)
