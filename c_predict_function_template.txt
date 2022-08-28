@@ -1,0 +1,6 @@
+for (int i = 0; i < {{FEATURE_NUM}}; ++i) 
+{
+    data[i].qvalue = quantize_0(data[i].fvalue, i);
+}
+double sum = (double)predict_margin_unit0(data);
+return sum;

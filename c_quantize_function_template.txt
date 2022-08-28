@@ -1,0 +1,31 @@
+const size_t offset = th_begin_0[fid];
+const double* array = &threshold_0[offset];
+int len = th_len_0[fid];
+uint8_t low = 0;
+uint8_t high = len;
+uint8_t mid;
+double mval;
+// It is possible th_begin_0[i] == [total_num_threshold_0]. This means that
+// all features i, (i+1), ... are not used for any of the splits in the model.
+// So in this case, just return something
+if (offset == {{offset}} || val < array[0]) {
+return 0;
+}
+while (low + 1 < high) {
+mid = (low + high) / 2;
+mval = array[mid];
+if (val == mval) {
+    return mid;
+} else if (val < mval) {
+    high = mid;
+} else {
+    low = mid;
+}
+}
+if (array[low] == val) {
+return low;
+} else if (high == len) {
+return len;
+} else {
+return low + 1;
+}
